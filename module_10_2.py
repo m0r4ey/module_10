@@ -3,6 +3,8 @@ from time import sleep
 import threading
 
 print_lock = threading.Lock()
+
+
 class Knight(threading.Thread):
     def __init__(self, name, power):
         threading.Thread.__init__(self)
@@ -20,9 +22,9 @@ class Knight(threading.Thread):
                 enemies = 0
             with print_lock:
                 print(f'{self.name} сражается {days} день(дня)..., осталось {enemies} воинов.')
-            sleep(1)
             if enemies == 0:
                 print(f'{self.name} одержал победу спустя {days} дней(дня)!')
+            sleep(1)
 
 
 first_knight = Knight('Sir Lancelot', 10)
